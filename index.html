@@ -40,7 +40,7 @@ rel="stylesheet" type="text/css">
         <div class="col-md-3 logo"> <a href="index.html"><img src="images/mojoomla_logo.jpg" width="150" id="img-logo" alt="logo"></a> </div>
         <div class="col-md-8 col-md-offset-1 desc">
           <h4 class="slight">School Management System</h4>
-          <h5 class="slight"><small> Documented by Mojoomla - at October 09 2015</small></h5>
+          <h5 class="slight"><small> Documented by Mojoomla - at 21 December 2023</small></h5>
         </div>
       </div>
       <div class="col-md-4">
@@ -49,9 +49,19 @@ rel="stylesheet" type="text/css">
           <ul id="top-menu">
 			<li><a href="#Api-section">API section</a></li>
 			  <li><a href="#setting-up-android-project">setting up Android Project</a></li>
+			 <li><a href="#set-up-firebase-project">set up firebase</a></li>
+			  <li><a href="#change-application-name">Change Application Name</a></li>
+			  <li><a href="#changing-package-name">Changing Package name</a></li>
 			   <li><a href="#Android-Customization">Android Customization</a></li>
-			   <li><a href="#Notification_Setting">FCM Notification Setting</a></li>
-			    <li><a href="#Uploading-to-the-playstore">Uploading To The Playstore</a></li>
+			   <li><a href="#sign-your-release-build">Create Release Build</a></li>
+			   <li><a href="#release-apk-android">Release App in PlayStore</a></li>
+			   <li><a href="#school-app-pages">School App Overview</a>
+			   <ul> <li><a href="#fronted-login">Login Screen</a></li>
+			<li><a href="#student-view">Student Screen</a></li>
+			<li><a href="#teacher_view">Teacher Screen</a></li></ul>
+			   </li>
+			   <li><a href="https://play.google.com/store/apps/details?id=com.schoolappniftysol" target="_blank">Download App</a></li>
+			   
 				 </ul>
         </aside>
       </div>
@@ -61,7 +71,7 @@ rel="stylesheet" type="text/css">
             <div class="col-md-3 logo"> <a href="index.html"><img src="images/school_logo.png" width="80" height="80" id="img-logo" alt="logo"></a> </div>
             <div class="col-md-8 col-md-offset-1 desc">
               <h4 class="slight">School Master - School Management App <sub><small></small></sub></h4>
-              <h5 class="slight"><small> Documented by Mojoomla</a> - at July 11 2017</small></h5>
+              <h5 class="slight"><small> Documented by Mojoomla</a> - at 21 December 2023</small></h5>
             </div>
           </div>
           <hr class="vertical-space2">
@@ -90,16 +100,16 @@ rel="stylesheet" type="text/css">
 			    <li>Latest <a href="http://developer.android.com/sdk/index.html">Android Studio</a></li>
 				<li>Windows XP (32-bit), Vista (32- or 64-bit), or Windows 7 (32- or 64-bit) </li>
 				<li>Mac OS X 10.5.8 or later (x86 only)</li>
-				<li>Linux (tested on Ubuntu Linux, Lucid Lynx) </li>
+				<li>Linux (tested on Ubuntu Linux, Lucid Lynx)</li>
 				<li>GNU C Library (glibc) 2.7 or later is required. </li>
 				<li>On Ubuntu Linux, version 8.04 or later is required.64-bit distributions must be capable of running 32-bit applications. </li>
-                <li>2 GB RAM minimum, 4 GB RAM recommended.</li>   
+                <li>4 GB RAM minimum, 8 GB RAM recommended.</li>   
 				<li>At least 1 GB for Android SDK, emulator system images, and caches.</li>
-				<li>Oracle® Java Development Kit (JDK) 7.</li>
+				<li>Oracle® Java Development Kit (JDK) 8.</li>
                </ol>
 			   
 			  <h5><strong>2. <u>Installing the latest version of Android Studio.</u></strong></h5>
-             <code>School MasterApp is built with the latest Android studio 3.4 </br><strong> NOTE:</strong> There are several other tools to build and run android projects.</code>
+             <code>School MasterApp is built with the latest Android studio Arctic Fox (2020.3.1) </br><strong> NOTE:</strong> There are several other tools to build and run android projects.</code>
 				           
 		   <ol>
 				<li>	Go to the <a href = "http://developer.android.com/sdk/index.html" > Android Developer Page</a> </li>
@@ -112,7 +122,7 @@ rel="stylesheet" type="text/css">
 			<h5><strong>3. <u>Update the IDE and SDK Tools</u></strong></h5>
 			<ol>
 				<li>The Android SDK Manager provides the SDK tools, platforms, and other components you need to develop your apps.</li>
-				<li>School MasterApp minimum required SDK Platform API level 14</li>
+				<li>School MasterApp minimum required SDK Platform API level 21</li>
 				<li>Install SDK Platform API levels.</li>
 				<li>Open the Preferences window by clicking File -> Settings.</li>
 				<li>In the left panel, click Appearance & Behavior -> System Settings -> Android SDK.</li>
@@ -128,38 +138,83 @@ rel="stylesheet" type="text/css">
 		<li> Click OK.</li> 
 		<li> Android Studio then open the project in a new IDE window.</li>
 		</ol>        
-	  <h4>Import Support Dependency to Android Studio</h4>
-	<p>Once Android Studio is Done, After install the support library Dependency. </p>	
-	<ol>
-		<li>Right click on the School Management System Project -> Open Module Settings</li>
-		<li>Select Dependencies -> Select library Dependency then click on ok</li>	
-	</ol>
-	<img src="images/dependencies.png" width="500" id="img-logo" alt="logo">
-	<br><br>
-     
+	  
 <p></p>
-	<h4>Troubleshooting Errors.</h4>
-	If you still have errors then it could mean:
-	<ol>
-		<li> You did not install Android Studio properly. I would suggest Open SDK Manager and Download Intel x86 Emulator Accelerator (HAXM installer) if you haven't.</li>
-		<li> Now go to your SDK directory (C:\users\Admin\AppData\Local\Android\sdk, generally). In this directory Go to extras > intel > Hardware_Accelerated_Execution_Manager and run the file named "intelhaxm-android.exe".</li>
-		<li> Restart Android Studio and then try to start the AVD again.
-			
+
+
+			  
+			  		<section id="set-up-firebase-project">
+				   <h3><strong>C).<u>Set Up Firebase</u></strong></h3>
+				   <p>To set up Firebase Database for a School App, follow these step-by-step instructions:</p>
+				   <p>
+				   <strong>Step 1: Create a Firebase project</strong>
+				   <li>Go to the Firebase console <strong><a href="https://console.firebase.google.com/" target="_blank">(https://console.firebase.google.com/)</a></strong> and sign in with your Google account.</li>
+				   <li>Click on "Add project" or select an existing project if you have one.</li>
+				   <li>Enter a name for your project and optionally choose a country/region.</li>
+				   <li>Click on "Create Project" to create the Firebase project.</li>
+				   </p>
+	
+				   <p><strong>Step 2: Connect your app to Firebase</strong>
+					<li>In the Firebase console, go to your project.</li>
+					<li>Click on the "Add app" button to add your Android app.</li>
+					<li>Follow the instructions to register your app, providing the app package name (usually "com.example.your_app") and app nickname.</li>
+					<li>Download the <strong>google-services.json</strong> file and place it in the <strong>android/app</strong> directory of your Android project.</li>
+					<br>
+					
+				   
+		</section>
+		
+		
+			<section id="set-up-firebase-project">
+				   <h3><strong>D).<u>Firebase Cloud Messaging Set Up Key</u></strong></h3>
+				    <p>	</p>
+				   <p>
+				   <img alt="" src="images/fcm setup1.png" width = "100%"></li>
+				   <li>Go to Firebase Console, select the project setting then go to Cloud Messaging.</li>
+				   <li>Get the server key and login in web with admin credentials.</li>
+				   <li>Select the General Settings in System Settings option. Paste the FCM Key in Push Notification Setting column.</li>
+				   <li>FCM Key is set now, push notification will work after this set up.</li>
+				   </p>
+				   
+		</section>
+		
+		
+		<section id="change-application-name">
+<h3><strong>E).<u>Change Application name</u></strong></h3>
+      
+		  <p><a href="#change-application-name">Change the application name</a> in <code>res/values/strings.xml</code></br>
+		The application name can be changed from the <code>strings.xml</code> file in the values folder. 
+        <ol>
+        <li> Open the <code>res</code> folder</li>
+        <li>Navigate to the values folder and open the strings.xml file</li>
+        <li>Change the <code>app_name</code> value to the name you want</li>
+        </ol>
+		</section>	  
+		
+		
+		
+		  
+		  <section id="changing-package-name">
+		   <h3><strong>F). <u>Changing Package name</u></strong></h3>
+       <p>
+		<a href="https://developer.android.com/studio/build/application-id.html">Change the package name</a> in <code>AndroidManifest.xml and Gradle Scripts file.
+		</code></br>
+		Every application in Google Play has an unique application name usually in the form of <code>com.example.app</code>. Before you can publish your application you need to change the application name to something unique (like use your domain as prefix in reverse order). To change it, you need to:</p>
+        <ol>
+            <li>Run IDE and open the project</li>
+			<li>click on manifest folder and open AndroidManifest.xml file</li>
+			<li>Change the package value.</li>
+            <li>click on the Gradle Scripts</li>
+            <li>open build.gradle (Module:app) file -> android -> defaultConfig -> applicationId value Rename</li>
+			<li>click on Sync Now</li>
 			<br/>
-			<b> A.) If it does not have errors then the problem lies on the source file. Make sure you have imported correctly. If you did not use step 1 above, then maybe it could be something wrong with your Android Development Setup. Consider checking for updates. 
-
+        </ol>
+				  
 			
-			</li>
-
-	</ol>
-	At this point there should be no more errors on the project.
-	
-	
-			
-          <hr>
+          
 		  </section>
 		  <section id="Android-Customization">
-		  			   <h3><strong>C). <u>Android Customization</u></strong></h3>
+		  			   <h3><strong>G). <u>Android Customization</u></strong></h3>
 			
                <h5><strong>1. <u>Server Url</u></strong></h5>
 			  The server url can be changed from the Const.java file in the values folder.
@@ -177,41 +232,11 @@ rel="stylesheet" type="text/css">
 			   	   <h5><strong>2. <u>Change Launcher icon</u></strong></h5>
 		<p><a href="#change-launcher-icon">Change the launcher icon</a> in <code>res/drawable-*/ic_launcher.png</code>	   </br>
         Replace the following files in the <code>res</code> folder, with your own icon named <code>ic_launcher.png</code> :</p>
-        <ul>
-        <li><code>res/drawable-hdpi/ic_launcher.png</code> with 72x72 px</li>
-        <li><code>res/drawable-xhdpi/ic_launcher.png</code> with 96x96 px</li>
-        <li><code>res/drawable-xxhdpi/ic_launcher.png</code> with 144x144 px</li>
-        <li><code>res/drawable-xxxhdpi/ic_launcher.png</code> with 192x192 px</li>
-        </ul>
+          <img src="images/change-logo.png" id="change-img-logo">
         <p><strong>Note:</strong> You need the 512x512 px size for publishing to Google Play.</p>
 
-<h5><strong>3. <u>Change Application name</u></strong></h5>
-        <p><a href="#change-application-name">Change the application name</a> in <code>res/values/strings.xml</code></br>
-		The application name can be changed from the <code>strings.xml</code> file in the values folder. 
-        <ol>
-        <li> Open the <code>res</code> folder</li>
-        <li>Navigate to the values folder and open the strings.xml file</li>
-        <li>Change the <code>app_name</code> value to the name you want</li>
-        </ol>
-        
 
- <h5><strong>4. <u>Changing package name</u></strong></h5>
-	
-        <p>
-		<a href="https://developer.android.com/studio/build/application-id.html">Change the package name</a> in <code>AndroidManifest.xml and Gradle Scripts file.
-		</code></br>
-		Every application in Google Play has an unique application name usually in the form of <code>com.example.app</code>. Before you can publish your application you need to change the application name to something unique (like use your domain as prefix in reverse order). To change it, you need to:</p>
-        <ol>
-            <li>Run IDE and open the project</li>
-			<li>click on manifest folder and open AndroidManifest.xml file</li>
-			<li>Change the package value.</li>
-            <li>click on the Gradle Scripts</li>
-            <li>open build.gradle (Module:app) file -> android -> defaultConfig -> applicationId value Rename</li>
-			<li>click on Sync Now</li>
-			<br/>
-        </ol>
-				   
-               <h5><strong>5. <u> Run Application on Emulator</u></strong></h5>
+               <h5><strong>3. <u> Run Application on Emulator</u></strong></h5>
        
 		<code>Create an AVD Definition as follows:</code>
 		<ol>
@@ -229,8 +254,18 @@ rel="stylesheet" type="text/css">
 			<li>In the Select Deployment Target window, select your emulator and click OK.</li>			
 		</ol>
 		<code>It can take a few minutes for the emulator to start. You may have to unlock the screen. When you do, My First App appears on the emulator screen.</code>
-		</br>    
-		<h5><strong>6. <u>Sign your release build</u></strong></h5>
+		</br>  
+
+
+		<p> </p>
+
+	</ol>
+	
+		<br>
+		 <section id="sign-your-release-build">
+		<h3><strong>I).<u>Sign your release build</u></strong></h3>
+		<br>
+		
 		
 		<code>You can use Android Studio to manually generate signed APKs, either one at a time, or for multiple build variants at once. Instead of manually signing APKs, you can also configure your Gradle build settings to handle signing automatically during the build process. This section describes the manual signing process.more information to see,<a href = "https://developer.android.com/studio/publish/app-signing.html#sign-auto" >Configure the Build Process to Automatically Sign Your APK.</a></code>
 		<br><br>
@@ -248,48 +283,75 @@ rel="stylesheet" type="text/css">
 			<li>Certificate: Enter some information about yourself for your certificate. This information is not displayed in your app, but is included in your certificate as part of the APK.</li>
 			<li>Once you complete the form, click OK.</li>
 			<li>On the Generate Signed APK Wizard window, select a keystore, a private key, and enter the passwords for both. (If you created your keystore in the last step, these fields are already populated for you.) Then click Next.</li>
+			<img alt="" src="images/release-apk-bundle.png" height = "300" width = "300"></li>
 			<li>On the next window,select a destination for the signed APK(s), select the build type, (if applicable) choose the product flavor(s), and click Finish.</li>
 		</ol>
 
-			     <hr>
+			<p> </p>
+			
 		  </section>
-		  <section id="Notification_Setting">
-          	<hr class="vertical-space2">
-               <h3><strong>D). <u>FCM Notification Setting</u></strong></h3>
-			    <p>Please visit the following link and perform 4 steps.</p>
-			   <p>
-		<a href="https://developers.intercom.com/v2.0/docs/android-fcm-push-notifications">Click here Create FCM Project Get Server Key</a></p>
-		<p>You will get server key in step 3. Which you need to set in wordpress plugin setting.</p>
-		<p> Please check videos provided in our school package for notification related setup.</p>
+		 
 
-			   </hr>
-			   <section>
+		  </section>
+		
+			    <section id="release-apk-android">
+			<h3><strong>J).<u>Release App in PlayStore</u></strong></h3>
+			<p>To sign a release app for School Management , you can follow these steps:
+			<br>
+			
+			<li>Please be aware that there is a registration fee of at least $25 associated with the process.</li>
+			<li>Click on the Create app button in the All apps section. Enter the app details in the "Create app" form.</li>
+			<img alt="" src="images/app_release1.png" width = "100%"></li>
+			<li>After creating the app, we have to go through multiple tasks to release the application.</li>
+			<img alt="" src="images/app_release2.png" width = "100%"></li>
+			<img alt="" src="images/app_release3.png" width = "100%"></li>
+			<img alt="" src="images/app_release4.png" width = "100%"></li>
+			<li>However, all these steps will be self-explanatory.<br>
+			<li>At each step, you'll be prompted for information about your application, advertisements, privacy policy, and more.<br>
+			<li>It's important to note that you can proceed to publish only after completing these steps.<br>
+			<li>Make sure to mention everything clearly. Especially the questions about data collection. Because, at any time if Google found that your prescribed information is wrong, your app will not be published or will be taken out, if it's published.<br>
+			<li>After completing these steps, we have to send the app for review. Our app will be published once the review is completed from Google Play team.<br>
+			<li>It's important to note that there's a higher chance of the app getting rejected if it has security or advertising-related issues.<br>
+			<li>Therefore, make sure to thoroughly review your app to ensure that it doesn't have any potential problems in data collection. This will contribute to a smoother and more successful app release experience.<br>
+			</p>
+	</section>	
+
+		 <section id="school-app-pages">
+		<h3><strong>K).<u>School App Overview</u></strong></h3>
+		<br>
+		  
+		  <section id="fronted-login">
+		  <h3><strong><u>Login Screen:</u></strong></h3>
+		    <p> You will see this login screen.You can now login as admin student and teacher.</p><br>        
+			
+					<img alt="" src="images/login.png" height = "350" width = "200"><br><br>           
+
+			   </ol>
+
+				
+				</section>
+				
+				<section id = "student-view"> <h3><strong><u> Student Screen</u></strong></h3>
+<strong> Login Admin ID And Password For Demo</strong><p> <strong>Email :</strong>studentapp@gmail.com<br><strong>Password :</strong>studentApp</p>
+		<img alt="" src="images/student-drawer.png" height = "350" width = "200">
+		<img alt="" src="images/student-dashboard.png" height = "350" width = "200">
+		
+			</section>
+			<br>
+			<section id = "teacher_view"> <h3><strong><u> Teacher Screen</u></strong></h3>
+<strong> Login Admin ID And Password For Demo</strong><p> <strong>Email :</strong>teacher@gmail.com<br><strong>Password :</strong>teacher</p>
+		<img alt="" src="images/teacher-drawer.png" height = "350" width = "200">
+		<img alt="" src="images/teacher-dashboard.png" height = "350" width = "200">
+		
+			</section>
+		      	  
+
+
+
+			  
+			   
 		<section id="Uploading-to-the-playstore">
-          	<hr class="vertical-space2">
-               <h3><strong>E). <u>Uploading to the Playstore</u></strong></h3>
-                    <p>A unique signed application needs to be sent to the playstore. To do that: </p>
-        <ol>
-        <li>First make sure that Lint Error checking has been turned off. To do that go to Preference -> Android </li>
-        <li>Select Lint Error Checking </li>
-        <li> Unchecked the "Run full error checking when exporting app" </li>
-        <li> Click on apply then OK </li>
-    </ol>
-
-        Now we can export the app:
-        <ol>      
-            <li>Left click on the project and go to Android Tools</li>
-            <li>Click on the "Export Signed Application"</li>
-            <li>Create a new keystore </li>
-            <li>Set the password </li>
-            <li>Set you alias 
-            <li>Select the location of where to save the apk </li>
-            <br/>
-        </ol>
-
-        <p>That&#39;s it.</p>
-
-			<hr>
-		</section>      
+            
                     <!-- start-footer-->
           <div id="footer"> © 2017 Mojoomla All Rights Reserved. </div>
           <!-- end-footer -->
